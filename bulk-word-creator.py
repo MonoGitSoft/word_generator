@@ -47,11 +47,15 @@ df["BIRTH_TIME_M"] = df["BIRTH_TIME"].dt.month
 df["BIRTH_TIME_D"] = df["BIRTH_TIME"].dt.day
 df["BIRTH_TIME"] = pd.to_datetime(df["BIRTH_TIME"]).dt.date
 
+
+
 df["PASSPORT_VALID_DATE"] = pd.to_datetime(df["PASSPORT_VALID_DATE"])
 df["PASSPORT_VALID_DATE_Y"] = df["PASSPORT_VALID_DATE"].dt.year
 df["PASSPORT_VALID_DATE_M"] = df["PASSPORT_VALID_DATE"].dt.month
 df["PASSPORT_VALID_DATE_D"] = df["PASSPORT_VALID_DATE"].dt.day
 df["PASSPORT_VALID_DATE"] = pd.to_datetime(df["PASSPORT_VALID_DATE"]).dt.date
+
+
 
 # Iterate over each row in df and render word document
 for record in df.to_dict(orient="records"):
@@ -63,3 +67,5 @@ for record in df.to_dict(orient="records"):
         output_dir_person.mkdir(exist_ok=True)
         output_path = output_dir_person / f"{record['FIRST_NAME']}-{record['LAST_NAME']}-{os.path.basename(template)}"
         doc.save(output_path)
+
+print(df.dtypes)
