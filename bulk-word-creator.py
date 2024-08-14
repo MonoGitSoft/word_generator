@@ -56,6 +56,7 @@ df["PASSPORT_VALID_DATE_D"] = df["PASSPORT_VALID_DATE"].dt.day
 df["PASSPORT_VALID_DATE"] = pd.to_datetime(df["PASSPORT_VALID_DATE"]).dt.date
 
 df["MOTHER_NAME"] = df["MOTHER_FIRST_NAME"] + " " + df["MOTHER_LAST_NAME"]
+df["NAME"] = df["FIRST_NAME"] + " " + df["LAST_NAME"]
 
 
 # Iterate over each row in df and render word document
