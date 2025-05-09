@@ -35,7 +35,7 @@ output_dir.mkdir(exist_ok=True)
 
 
 # Convert Excel sheet to pandas dataframe
-df = pd.read_excel(excel_path, sheet_name="Sheet1")
+df = pd.read_excel(excel_path, sheet_name="Sheet1", dtype=object)
 
 df = df.fillna('')
 
